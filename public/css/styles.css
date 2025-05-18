@@ -560,3 +560,116 @@ span {
         opacity: 0;
     }
 }
+
+/* CONTACT SECTION */
+.contact {
+    background-color: var(--second-bg-color);
+}
+
+.contact h2 {
+    margin-bottom: 3rem;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+/* Styles for form labels */
+.contact form label {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 0.8rem; /* Increased space below label */
+    text-align: left;
+    width: 100%; /* Make label take full width */
+}
+
+/* Styles for input and textarea */
+.contact form input[type="email"],
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--main-color);
+    resize: vertical; /* Allow vertical resizing for textarea */
+    margin-bottom: 1.5rem; /* Space below input/textarea */
+}
+
+/* Style for the submit button */
+.contact form button[type="submit"] {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: none;
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-top: 1rem; /* Space above button */
+}
+
+.contact form button[type="submit"]:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: 0 0 1.6rem var(--main-color);
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    background: var(--main-color);
+    border-radius: 0.8rem;
+    transition: 0.5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-text p {
+        margin-bottom: 1rem;
+    }
+
+    .footer-iconTop {
+        margin-top: 1rem;
+    }
+}
