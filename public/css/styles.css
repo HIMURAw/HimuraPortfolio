@@ -553,9 +553,12 @@ span {
 }
 
 @keyframes blinkCursor {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -576,17 +579,15 @@ span {
     text-align: center;
 }
 
-/* Styles for form labels */
 .contact form label {
     display: block;
     font-size: 1.6rem;
     color: var(--text-color);
-    margin-bottom: 0.8rem; /* Increased space below label */
+    margin-bottom: 0.8rem;
     text-align: left;
-    width: 100%; /* Make label take full width */
+    width: 100%;
 }
 
-/* Styles for input and textarea */
 .contact form input[type="email"],
 .contact form textarea {
     width: 100%;
@@ -596,11 +597,10 @@ span {
     background: var(--bg-color);
     border-radius: 0.8rem;
     border: 0.2rem solid var(--main-color);
-    resize: vertical; /* Allow vertical resizing for textarea */
-    margin-bottom: 1.5rem; /* Space below input/textarea */
+    resize: vertical;
+    margin-bottom: 1.5rem;
 }
 
-/* Style for the submit button */
 .contact form button[type="submit"] {
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -613,7 +613,7 @@ span {
     font-weight: 600;
     transition: 0.3s ease;
     cursor: pointer;
-    margin-top: 1rem; /* Space above button */
+    margin-top: 1rem;
 }
 
 .contact form button[type="submit"]:hover {
@@ -626,18 +626,16 @@ span {
 /* FOOTER */
 .footer {
     display: flex;
-    flex-direction: column; /* Stack items vertically by default */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
     padding: 2rem 9%;
     background: var(--bg-color);
-    text-align: center; /* Center text within footer */
-    gap: 1.5rem; /* Add gap between stacked items */
+    text-align: center;
+    gap: 1.5rem;
 }
 
 .footer-text p {
     font-size: 1.6rem;
-    /* text-align: center; Remove as parent is centered */
-    /* width: 100%; Remove as flex item */
 }
 
 .footer-iconTop a {
@@ -659,22 +657,21 @@ span {
     color: var(--second-bg-color);
 }
 
-/* Adjust for larger screens - Optional: Side by side layout */
 @media (min-width: 769px) {
     .footer {
-        flex-direction: row; /* Arrange items horizontally on larger screens */
-        justify-content: space-between; /* Put space between text and icon */
-        gap: 0; /* Remove gap when side by side */
-    }
-    
-    .footer-text p {
-         width: auto; /* Allow text to take necessary width */
-         text-align: left; /* Align text to left in row layout */
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
     }
 
-     .footer-iconTop {
-        margin-top: 0; /* Remove margin added for stacked layout */
-     }
+    .footer-text p {
+        width: auto;
+        text-align: left;
+    }
+
+    .footer-iconTop {
+        margin-top: 0;
+    }
 }
 
 /* Remove redundant responsive adjustments for footer in 768px media query */
