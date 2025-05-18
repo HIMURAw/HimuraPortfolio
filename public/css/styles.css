@@ -242,7 +242,235 @@ span {
 }
 
 .heading {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content {
+    padding: 0 4rem;
+}
+
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2.6rem;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+/* ScrollBar Desing */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+    width: 50px;
+}
+
+/* Skills Section */
+.skills {
+    background-color: var(--bg-color);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.skills-box {
+    background: var(--second-bg-color);
+    border-radius: 2rem;
+    padding: 3rem;
+    text-align: center;
+    border: 0.2rem solid var(--bg-color);
+    transition: 0.5s ease;
+}
+
+.skills-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.skills-box h3 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+    color: var(--main-color);
+}
+
+.skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-radius: 1rem;
+    transition: 0.3s ease;
+    width: 10rem;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+.skill-item img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+}
+
+.skill-item span {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 2rem 3%;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        transition: 0.25s ease;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 1.5rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about-content {
+        padding: 0 3%;
+    }
+
+    .about-img img {
+        width: 70vw;
+        margin-bottom: 4rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-box {
+        max-width: 100%;
+    }
+    
+    /* Adjust skills-content and skill-item for better wrapping on smaller screens */
+    .skills-content {
+        justify-content: space-around; /* Distribute items evenly */
+        gap: 1.5rem; /* Slightly reduce gap */
+    }
+
+    .skill-item {
+         width: 8rem; /* Adjust item width for smaller screens */
+         padding: 1rem;
+    }
+
+    .skill-item img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .skill-item span {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+    
+    /* Further adjust skills-content and skill-item for very small screens */
+     .skills-content {
+        gap: 1rem;
+    }
+
+    .skill-item {
+         width: 7rem; /* Further adjust item width */
+         padding: 0.8rem;
+    }
+
+    .skill-item img {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+     .skill-item span {
+        font-size: 1rem;
+    }
+
+}
+
+#express{
+    background-color: #fff;
 }
