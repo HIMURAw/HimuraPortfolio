@@ -626,17 +626,18 @@ span {
 /* FOOTER */
 .footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column; /* Stack items vertically by default */
+    align-items: center; /* Center items horizontally */
     padding: 2rem 9%;
     background: var(--bg-color);
+    text-align: center; /* Center text within footer */
+    gap: 1.5rem; /* Add gap between stacked items */
 }
 
 .footer-text p {
     font-size: 1.6rem;
-    text-align: center;
-    width: 100%;
+    /* text-align: center; Remove as parent is centered */
+    /* width: 100%; Remove as flex item */
 }
 
 .footer-iconTop a {
@@ -658,7 +659,26 @@ span {
     color: var(--second-bg-color);
 }
 
-/* Responsive adjustments for footer */
+/* Adjust for larger screens - Optional: Side by side layout */
+@media (min-width: 769px) {
+    .footer {
+        flex-direction: row; /* Arrange items horizontally on larger screens */
+        justify-content: space-between; /* Put space between text and icon */
+        gap: 0; /* Remove gap when side by side */
+    }
+    
+    .footer-text p {
+         width: auto; /* Allow text to take necessary width */
+         text-align: left; /* Align text to left in row layout */
+    }
+
+     .footer-iconTop {
+        margin-top: 0; /* Remove margin added for stacked layout */
+     }
+}
+
+/* Remove redundant responsive adjustments for footer in 768px media query */
+/*
 @media (max-width: 768px) {
     .footer {
         flex-direction: column;
@@ -673,3 +693,4 @@ span {
         margin-top: 1rem;
     }
 }
+*/
