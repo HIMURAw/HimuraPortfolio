@@ -1,38 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Umut Öztürk - Portföy</title>
+    <!-- Meta Robots -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta Publisher -->
+    <meta name="publisher" content="Umut Öztürk">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://umutozturk.xyz/" />
+
+    <title>Umut Öztürk - Web Developer & Full Stack Developer</title>
     <link rel="icon" href="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/himura.webp">
 
     <!-- Temel Meta Etiketleri -->
     <meta name="description"
-        content="Umut Öztürk'nin kişisel portföy sitesi. Yazılım projeleri, tasarımlar ve daha fazlası.">
-    <meta name="keywords" content="portföy, yazılım, tasarım, web geliştirici, Umut Öztürk">
+        content="Umut Öztürk - Web Developer & Full Stack Developer. I'm always learning and creating efficient systems through clean code. Focus on web development, game scripting, and turning ideas into reality. Contact me for your development needs.">
+    <meta name="description" lang="tr"
+        content="Umut Öztürk - Web Developer & Full Stack Developer. Sürekli öğrenen ve temiz kod ile verimli sistemler oluşturan bir geliştiriciyim. Web geliştirme, oyun scriptleme ve fikirleri gerçeğe dönüştürme konularına odaklanıyorum. Geliştirme ihtiyaçlarınız için benimle iletişime geçin.">
     <meta name="author" content="Umut Öztürk">
 
     <!-- Open Graph Meta Etiketleri (Sosyal Medya için) -->
-    <meta property="og:title" content="Umut Öztürk - Portföy">
+    <meta property="og:title" content="Umut Öztürk - Web Developer & Full Stack Developer">
     <meta property="og:description"
-        content="Umut Öztürk'nin kişisel portföy sitesi. Yazılım projeleri, tasarımlar ve daha fazlası.">
+        content="Umut Öztürk - Web Developer & Full Stack Developer. Sürekli öğrenen ve temiz kod ile verimli sistemler oluşturan bir geliştiriciyim. Web geliştirme, oyun scriptleme ve fikirleri gerçeğe dönüştürme konularına odaklanıyorum.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seninwebsiten.com/">
+    <meta property="og:url" content="https://umutozturk.xyz/">
     <meta property="og:image" content="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/himura.webp">
+    <meta property="og:site_name" content="Umut Öztürk Portfolio">
+    <meta property="og:locale" content="tr_TR">
 
     <!-- Twitter Kart Meta Etiketleri -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Umut Öztürk - Portföy">
+    <meta name="twitter:title" content="Umut Öztürk - Web Developer & Full Stack Developer">
     <meta name="twitter:description"
-        content="Umut Öztürk'nin kişisel portföy sitesi. Yazılım projeleri, tasarımlar ve daha fazlası.">
+        content="Umut Öztürk - Web Developer & Full Stack Developer. Sürekli öğrenen ve temiz kod ile verimli sistemler oluşturan bir geliştiriciyim. Web geliştirme, oyun scriptleme ve fikirleri gerçeğe dönüştürme konularına odaklanıyorum.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/himura.webp">
+    <meta name="twitter:creator" content="@umut_ozturk006">
 
     <!-- Stil ve İkonlar -->
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Umut Öztürk",
+        "url": "https://umutozturk.xyz",
+        "image": "https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/himura.webp",
+        "sameAs": [
+            "https://www.linkedin.com/in/umut-%C3%B6zt%C3%BCrk-224501344/",
+            "https://github.com/HIMURAw",
+            "https://www.instagram.com/umut_ozturk006",
+            "https://discord.com/users/768372430631731210"
+        ],
+        "jobTitle": "Web Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "description": "Web Developer & Full Stack Developer. Sürekli öğrenen ve temiz kod ile verimli sistemler oluşturan bir geliştiriciyim."
+    }
+    </script>
 </head>
 
 
@@ -42,44 +78,43 @@
 
     <!-- HEADER SECTİON -->
     <header>
-        <a href="#home" class="logo-text">Umut Öztürk</a>
+        <a href="#home" class="logo-text" title="Umut Öztürk - Ana Sayfa">Umut Öztürk</a>
 
         <i class="bx bx-menu" id="menu-icon"></i>
 
         <ul class="navbar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a href="#home" title="Ana Sayfa">Home</a></li>
+            <li><a href="#about" title="Hakkımda">About</a></li>
+            <li><a href="#skills" title="Yeteneklerim">Skills</a></li>
+            <li><a href="#contact" title="İletişim">contact</a></li>
         </ul>
 
         <div class="top-btn">
-            <a href="#contact" class="nav-btn">Contact Me</a>
+            <a href="#contact" class="nav-btn" title="Benimle İletişime Geç">Contact Me</a>
         </div>
     </header>
 
     <!-- HOME SECTİON  -->
     <section class="home" id="home">
         <div class="home-content">
-            <h3>Hi, Myself</h3>
+            <h2>Hi, Myself</h2>
             <h1>Umut Öztürk</h1>
-            <h3>I'm a <span class="multiple-text" id="developer-title">Web Developer</span><span class="cursor">|</span>
-            </h3>
+            <h2>I'm a <span class="multiple-text" id="developer-title">Web Developer</span><span class="cursor">|</span></h2>
 
             <p>I'm Umut, a developer who enjoys turning ideas into reality through code. I focus on web development,
                 game scripting, and building clean, efficient systems. Always learning, always creating.
             </p>
 
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/umut-%C3%B6zt%C3%BCrk-224501344/" target="_blank"><i
+                <a href="https://www.linkedin.com/in/umut-%C3%B6zt%C3%BCrk-224501344/" target="_blank" rel="nofollow" title="LinkedIn Profilim"><i
                         class="bx bxl-linkedin"></i></a>
-                <a href="https://github.com/HIMURAw" target="_blank"><i class="bx bxl-github"></i></a>
-                <a href="https://www.instagram.com/umut_ozturk006" target="_blank"><i class="bx bxl-instagram"></i></a>
-                <a href="https://discord.com/users/768372430631731210" target="_blank"><i
+                <a href="https://github.com/HIMURAw" target="_blank" rel="nofollow" title="GitHub Profilim"><i class="bx bxl-github"></i></a>
+                <a href="https://www.instagram.com/umut_ozturk006" target="_blank" rel="nofollow" title="Instagram Profilim"><i class="bx bxl-instagram"></i></a>
+                <a href="https://discord.com/users/768372430631731210" target="_blank" rel="nofollow" title="Discord Profilim"><i
                         class="bx bxl-discord"></i></a>
             </div>
 
-            <a href="CV.docx" class="btn">Download CV</a>
+            <a href="CV.docx" class="btn" title="Özgeçmişimi İndir">Download CV</a>
         </div>
 
         <div class="home-img">
@@ -114,34 +149,34 @@
                 <h3>Programming Languages</h3>
                 <div class="skills-content">
                     <div class="skill-item">
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/javascript.png"
                                 alt="JavaScript" />
                         </a>
                         <span>JavaScript</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.w3schools.com/cs/" target="_blank">
+                        <a href="https://www.w3schools.com/cs/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/csharp.png"
                                 alt="C#" />
                         </a>
                         <span>C#</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.w3.org/html/" target="_blank">
+                        <a href="https://www.w3.org/html/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/html.png"
                                 alt="HTML5" />
                         </a>
                         <span>HTML5</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.w3schools.com/css/" target="_blank">
+                        <a href="https://www.w3schools.com/css/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/css.png" alt="css3" />
                         </a>
                         <span>CSS3</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.lua.org/" target="_blank">
+                        <a href="https://www.lua.org/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/lua.png" alt="lua" />
                         </a>
                         <span>Lua</span>
@@ -153,28 +188,28 @@
                 <h3>Technologies & Tools</h3>
                 <div class="skills-content">
                     <div class="skill-item">
-                        <a href="https://reactjs.org" target="_blank">
+                        <a href="https://reactjs.org" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/react.png"
                                 alt="React" />
                         </a>
                         <span>React</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://nodejs.org" target="_blank">
+                        <a href="https://nodejs.org" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/nodejs.png"
                                 alt="Node.js" />
                         </a>
                         <span>Node.js</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://electronjs.org" target="_blank">
+                        <a href="https://electronjs.org" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/electron.png"
                                 alt="electron.js" />
                         </a>
                         <span>Electron.js</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://expressjs.com" target="_blank">
+                        <a href="https://expressjs.com" target="_blank" rel="nofollow">
                             <img id="express"
                                 src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/express.png"
                                 alt="express" />
@@ -182,41 +217,41 @@
                         <span>Express</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://git-scm.com/" target="_blank">
+                        <a href="https://git-scm.com/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/git.png" alt="git" />
                         </a>
                         <span>Git</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.mysql.com/" target="_blank">
+                        <a href="https://www.mysql.com/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/mysql.png"
                                 alt="MySQL" />
                         </a>
                         <span>MySQL</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.postgresql.org" target="_blank">
+                        <a href="https://www.postgresql.org" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/postgresql.png"
                                 alt="postgresql" />
                         </a>
                         <span>PostgreSQL</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://www.arduino.cc/" target="_blank">
+                        <a href="https://www.arduino.cc/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/arduino.png"
                                 alt="arduino" />
                         </a>
                         <span>Arduino</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://discord.js.org/" target="_blank">
+                        <a href="https://discord.js.org/" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/discord.js.webp"
                                 alt="discord.js" />
                         </a>
                         <span>discord.js</span>
                     </div>
                     <div class="skill-item">
-                        <a href="https://github.com/qbcore-framework/qb-core" target="_blank">
+                        <a href="https://github.com/qbcore-framework/qb-core" target="_blank" rel="nofollow">
                             <img src="https://raw.githubusercontent.com/HIMURAw/HIMURA-IMAGE/main/qbcore.png"
                                 alt="qb-core" />
                         </a>
@@ -251,7 +286,7 @@
         </div>
 
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" title="Sayfanın Başına Dön"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
