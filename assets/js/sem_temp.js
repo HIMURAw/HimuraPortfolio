@@ -4,7 +4,7 @@
 // Header
 let header = $(`
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
-<a class="navbar-brand" href="index.html">John Doe </a>
+<a class="navbar-brand" href="index.html">HIMURA </a>
 <div class="hamburger_wrapper navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
   <div id="js-hamburger" class="hamburger">
@@ -244,7 +244,7 @@ const fillData = () => {
   let output = "";
   sem_temp.forEach(
     ({ event_name, event_type, event_image }) =>
-      (output += `
+    (output += `
             <div class="sem_temp_slide" style="background-image: url(assets/images/sem/sem1/${event_image});">
                 <div class="sem_temp_slideBg" style="background-image: url(assets/images/sem/sem1/${event_image});"></div>
                 <div class="sem_temp_slideContent">

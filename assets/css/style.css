@@ -34,14 +34,14 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --bg-mybtn: rgb(230, 109, 129);
-  --bg-nav: #6617cb;
-  --bg-nav-img: linear-gradient(315deg, #6617cb 0%, #882463 74%);
-  --bg-footer: linear-gradient(315deg, #6617cb 0%, #882463 74%);
+  --bg-mybtn: rgb(62, 148, 236);
+  --bg-nav: #0b5ed7;
+  --bg-nav-img: linear-gradient(315deg, #0ea5e9 0%, #2563eb 74%);
+  --bg-footer: linear-gradient(315deg, #0ea5e9 0%, #2563eb 74%);
   --bg: #191919;
   --text: #ffffff;
   --text-color: #fff;
-  --bg-txt-img: linear-gradient(315deg, #d5adc8 0%, #ff8489 74%);
+  --bg-txt-img: linear-gradient(315deg, #60a5fa 0%, #0ea5e9 74%);
   --txt-fill: transparent;
   --col-icon: white;
   --col-bd-radius: black;
@@ -73,7 +73,7 @@ html[data-theme="dark"] {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #bb86fc;
+  -webkit-box-shadow: inset 0 0 6px #0d6efd;
   border-radius: 2px;
   background: #f1f1f1;
 }
@@ -81,20 +81,20 @@ html[data-theme="dark"] {
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
   max-height: 10px;
-  -webkit-box-shadow: inset 0 0 6px #bb86fc;
-  background: #bb86fc;
+  -webkit-box-shadow: inset 0 0 6px #0d6efd;
+  background: #0d6efd;
   transition: 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ca9eff;
+  background: #3b82f6;
   
 }
 
 /* Custom Scrollbar for Mozilla Firefox*/
 html{
   overflow-y: visible;
-  scrollbar-color: #ca9eff #f1f1f1;
+  scrollbar-color: #3b82f6 #f1f1f1;
   scrollbar-width: auto;
 }
 
@@ -105,6 +105,7 @@ body {
   color: var(--text);
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
+  user-select: none;
 }
 .text-center heading1 exp-head {
   color: white;
@@ -116,7 +117,7 @@ body {
 #btnScrollToTop {
   width: 50px;
   height: 50px;
-  background-color: #bb86fc;
+  background-color: #0d6efd;
   color: #fff;
   margin: 8px;
   border: none;
@@ -229,7 +230,7 @@ html {
 }
 
 .navbar-brand {
-  font-family: Agustina;
+  font-family: "Agustina", sans-serif;
   font-size: 30px;
   font-weight: bold;
 }
@@ -244,6 +245,7 @@ html {
 /* Dark Mode toggle switch button */
 .dark_toggler {
   -webkit-appearance: none;
+  appearance: none;
   position: relative;
   cursor: pointer;
   width: 100px;
@@ -395,7 +397,7 @@ color: #ffffff !important;
       margin-right: auto;
       bottom: 0;
       width: 32%;
-      border-bottom: 3px solid #6a00bb;
+      border-bottom: 3px solid #0b5ed7;
   }
   
   .nav-item-hover::after {
@@ -406,7 +408,7 @@ color: #ffffff !important;
       height: 0.15em;
       bottom: 0;
       width: 0%;
-      background-color: #6a00bb;
+      background-color: #0b5ed7;
       transition: all ease-in-out 280ms;
   }
   
@@ -433,7 +435,7 @@ html[light-mode="light"] .nav-link{
   color: #000000 !important;
 }
 html[light-mode="light"] .nav-link:hover{
-  color: 	rgb(106, 0, 187) !important;
+  color: 	#0b5ed7 !important;
 }
 html[light-mode="light"] .navbar-brand:hover{
   color: #000000 !important;
@@ -800,7 +802,7 @@ Contact Form In Footer
   font-size: 25px;
   font-weight: 200;
   line-height: 22px;
-  border-bottom: 3px solid #bb86fc;
+  border-bottom: 3px solid #0d6efd;
 }
 
 .form-header {
@@ -829,7 +831,7 @@ form {
 }
 
 .form-style-6 h1 {
-  background: #bb86fc;
+  background: #0d6efd;
   font-size: 140%;
   font-weight: 300;
   text-align: center;
@@ -851,6 +853,7 @@ form {
   -moz-transition: all 0.30s ease-in-out;
   -ms-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
   outline: none;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -859,7 +862,7 @@ form {
   background: transparent;
   margin-bottom: 4%;
   border: #000;
-  border-bottom: 2px solid #bb86fc;
+  border-bottom: 2px solid #0d6efd;
   padding: 3%;
   color: rgb(107, 105, 105);
   font: 95% Arial, Helvetica, sans-serif;
@@ -876,9 +879,9 @@ form {
 .form-style-6 input[type="url"]:focus,
 .form-style-6 textarea:focus,
 .form-style-6 select:focus {
-  box-shadow: 0 0 5px #bb86fc;
+  box-shadow: 0 0 5px #0d6efd;
   padding: 3%;
-  border: 1px solid #bb86fc;
+  border: 1px solid #0d6efd;
   border-radius: 2px;
 }
 
@@ -890,8 +893,8 @@ form {
   width: 100%;
   margin-top: 2rem;
   padding: 3%;
-  background: #bb86fc;
-  border-bottom: 2px solid #bb86fc;
+  background: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
   border-radius: 23px;
   border-top-style: none;
   border-right-style: none;
@@ -902,7 +905,7 @@ form {
 
 .form-style-6 input[type="submit"]:hover,
 .form-style-6 input[type="button"]:hover {
-  background:#6a00bbd2;;
+  background:#0b5ed7;
 
 }
 
@@ -1031,7 +1034,7 @@ outline: none;
   border-radius: 50px;
   border-style: none;
   transition: 0.5s ease background-color, 0.5s ease box-shadow;
-  background: #bb86fc;
+  background: #0d6efd;
 }
 #lnch_btn {
   position: absolute;

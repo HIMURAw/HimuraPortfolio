@@ -23,6 +23,7 @@ html[light-mode="dark"] {
 
 html {
   overflow-x: hidden;
+  user-select: none;
 }
 /*Main section*/
 
@@ -97,7 +98,7 @@ section > div {
 
 /*color of experience page headings*/
 .my_experience {
-  color: #4e00bb;
+  color: #0b5ed7;
 }
 
 .sub-heading {
@@ -655,11 +656,11 @@ ul ol {
 }
 .blog-slider__button {
   display: inline-flex;
-  background-image: linear-gradient(147deg, #bb86fc 0%, #940eb5 74%);
+  background-image: linear-gradient(147deg, #0ea5e9 0%, #2563eb 74%);
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
-  box-shadow: 0px 14px 80px rgba(162, 14, 181, 0.4);
+  box-shadow: 0px 14px 80px rgba(37, 99, 235, 0.35);
   font-weight: 500;
   justify-content: center;
   text-align: center;
@@ -679,6 +680,56 @@ a:link {
 
 .card2 {
   color: var(--text);
+}
+
+/* --------------------------------------
+   Technologies Section (Badges Grid)
+   Targets the simple Bootstrap cards used under
+   `Teknolojiler` in experience.html
+---------------------------------------*/
+.main1 .container.my-3 .row > [class*="col-"] > .card {
+  border-radius: 14px;
+  background: var(--bg1-color);
+  border: 1px solid rgba(187, 134, 252, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.main1 .container.my-3 .row > [class*="col-"] > .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  border-color: rgba(187, 134, 252, 0.35);
+}
+
+.main1 .container.my-3 .row > [class*="col-"] > .card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 82px;
+}
+
+/* Pill badges for tech chips */
+.badge.badge-info {
+  background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+  color: #ffffff;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.35);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.badge.badge-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(59, 130, 246, 0.45);
+  filter: saturate(1.1);
+}
+
+/* Tighten vertical rhythm for the grid */
+.main1 .container.my-3 .row {
+  row-gap: 0.75rem;
 }
 
 @media (max-width: 768px) {

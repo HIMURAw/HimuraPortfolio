@@ -27,6 +27,7 @@ html {
 body {
   color: var(--text);
   background-color: var(--bg);
+  user-select: none;
 }
 
 .projects_head {
