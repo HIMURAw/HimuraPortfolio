@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mail, Github, Linkedin, ExternalLink, Code, Palette, Zap, Send, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import emailjs from '@emailjs/browser';
 import { BsDiscord } from 'react-icons/bs';
 
 // Theme Generator
@@ -100,16 +101,35 @@ const Portfolio = () => {
     { name: 'Next.js', level: 80 },
   ];
 
-  const handleSubmit = () => {
-    if (formData.name && formData.email && formData.message) {
-      setFormStatus('Message sent successfully!');
+const handleSubmit = async () => {
+  if (formData.name && formData.email && formData.message) {
+    try {
+      // EmailJS ile mail gönder
+      await emailjs.send(
+        'service_kgm7qb7',
+        'template_6qomg8w',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'zamtos79@gmail.com', 
+        },
+        'Q6zlJ4E5H7cJ3F6Zh'
+      );
+      
+      setFormStatus('Message sent successfully! ✅');
       setTimeout(() => {
         setFormStatus('');
         setFormData({ name: '', email: '', message: '' });
       }, 3000);
+    } catch (error) {
+      console.error('Error:', error);
+      setFormStatus('Failed to send message. Please try again. ❌');
     }
-  };
-
+  } else {
+    setFormStatus('Please fill in all fields. ⚠️');
+  }
+};
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
       <style>{`
@@ -393,7 +413,7 @@ const Portfolio = () => {
               Have a project in mind? Let's discuss how we can bring your ideas to life.
             </p>
             
-            <div className="gradient-border rounded-2xl p-8">
+            <div className="rounded-2xl p-8 bg-white/5 backdrop-blur-sm border border-white/10">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2">Name</label>
