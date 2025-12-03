@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mail, Github, Linkedin, ExternalLink, Code, Palette, Zap, Send } from 'lucide-react';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ const generateTheme = () => {
 };
 
 const Portfolio = () => {
-  const [theme, setTheme] = useState({ primary: '#6366f1', secondary: '#8b5cf6', accent: '#ec4899' });
+  const [theme] = useState(() => generateTheme());
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState('');
   const [typedText, setTypedText] = useState('');
@@ -36,10 +36,6 @@ const Portfolio = () => {
     'UI/UX Enthusiast',
     'Problem Solver'
   ];
-
-  useEffect(() => {
-    setTheme(generateTheme());
-  }, []);
 
   const projects = [
     {
@@ -150,7 +146,7 @@ const Portfolio = () => {
                 ease: "easeInOut" 
               }}
             >
-              <img src="himura.png" alt="HIMURA" className="w-32 h-32" />
+              <Image src="/himura.png" alt="HIMURA" width={128} height={128} className="w-32 h-32" />
             </motion.div>
 
             <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
