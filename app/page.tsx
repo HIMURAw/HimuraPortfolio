@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Github, Linkedin, ExternalLink, Code, Palette, Zap, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink, Code, Palette, Zap, Send, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import { BsDiscord } from 'react-icons/bs';
 
 // Theme Generator
 const generateTheme = () => {
@@ -34,43 +35,69 @@ const Portfolio = () => {
     'Full-Stack Developer',
     'Creative Designer',
     'UI/UX Enthusiast',
-    'Problem Solver'
+    'Problem Solver',
+    'Backend Developer',
+    'Frontend Developer',
   ];
 
   const projects = [
     {
-      title: 'AI SaaS Platform',
-      description: 'Full-stack SaaS platform with AI-powered analytics and real-time collaboration',
-      tech: ['Next.js', 'TypeScript', 'Prisma', 'OpenAI'],
-      link: '#'
+      title: 'PX-Guard',
+      description: 'Advanced guard system for FiveM servers with MongoDB integration',
+      tech: ['JavaScript', 'MongoDB', 'Node.js'],
+      link: 'https://github.com/HIMURAw/PX-Guard'
     },
     {
-      title: 'E-Commerce System',
-      description: 'Modern shopping experience with advanced filtering, payments, and admin dashboard',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      link: '#'
+      title: 'Pixel-license',
+      description: 'Comprehensive license system with JavaScript and Lua support',
+      tech: ['JavaScript', 'Lua', 'Node.js'],
+      link: 'https://github.com/HIMURAw/Pixel-license'
     },
     {
-      title: 'Social Media App',
-      description: 'Real-time social platform with posts, stories, messaging, and notifications',
-      tech: ['React Native', 'Firebase', 'Redux', 'WebSocket'],
-      link: '#'
+      title: 'Backdoor-scanner',
+      description: 'Security tool for detecting backdoors in systems',
+      tech: ['Batchfile', 'Security'],
+      link: 'https://github.com/HIMURA/Backdoor-scanner'
     },
     {
-      title: 'Design System',
-      description: 'Comprehensive component library with documentation and interactive examples',
-      tech: ['React', 'Storybook', 'CSS-in-JS', 'TypeScript'],
-      link: '#'
+      title: 'BotBase',
+      description: 'Complete base system for Discord bot development',
+      tech: ['JavaScript', 'Discord.js', 'Node.js'],
+      link: 'https://github.com/HIMURAw/BotBase'
+    },
+    {
+      title: 'PXBotBaseTS',
+      description: 'TypeScript version of BotBase for modern bot development',
+      tech: ['TypeScript', 'Discord.js', 'Node.js'],
+      link: 'https://github.com/HIMURAw/PXBotBaseTS'
+    },
+    {
+      title: 'HimuraPortfolio',
+      description: 'Modern portfolio website with dynamic animations and responsive design',
+      tech: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+      link: 'https://github.com/HIMURAw/HimuraPortfolio'
     }
   ];
 
   const skills = [
-    { name: 'React/Next.js', level: 95 },
+    { name: 'React', level: 95 },
     { name: 'TypeScript', level: 90 },
     { name: 'Node.js', level: 85 },
     { name: 'TailwindCSS', level: 92 },
     { name: 'Python', level: 80 },
-    { name: 'UI/UX Design', level: 88 }
+    { name: 'UI/UX Design', level: 88 },
+    { name: 'JavaScript', level: 93 },
+    { name: 'Lua', level: 85 },
+    { name: 'C#', level: 82 },
+    { name: 'CSS/HTML', level: 94 },
+    { name: 'Express.js', level: 88 },
+    { name: 'Discord.js', level: 84 },
+    { name: 'Drizzle ORM', level: 87 },
+    { name: 'MySQL/PostgreSQL', level: 89 },
+    { name: 'MongoDB', level: 86 },
+    { name: 'QB-Core/Ex-Extended', level: 83 },
+    { name: 'Arduino', level: 78 },
+    { name: 'Next.js', level: 80 },
   ];
 
   const handleSubmit = () => {
@@ -178,14 +205,22 @@ const Portfolio = () => {
               </motion.a>
             </div>
             <div className="flex gap-6 justify-center mt-12">
-              {[Github, Linkedin, Mail].map((Icon, i) => (
+              {[
+                { Icon: Github, link: 'https://github.com/HIMURAw' },
+                { Icon: Linkedin, link: 'https://www.linkedin.com/in/umut-%C3%B6zt%C3%BCrk-224501344/' },
+                { Icon: Mail, link: 'mailto:zamtos79@gmail.com' },
+                { Icon: Instagram, link: 'https://www.instagram.com/umut.ozturk0_/' },
+                { Icon: BsDiscord, link: 'https://discord.com/users/768372430631731210' },
+              ].map((item, i) => (
                 <motion.a
                   key={i}
-                  href="#"
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-white/30 transition-colors"
                   whileHover={{ y: -5 }}
                 >
-                  <Icon size={24} />
+                  <item.Icon size={24} />
                 </motion.a>
               ))}
             </div>
@@ -220,14 +255,14 @@ const Portfolio = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-lg text-gray-400 mb-6">
-                  I'm a passionate developer with 5+ years of experience building modern web applications. 
-                  My journey started with a curiosity for how things work, and it's evolved into a career 
-                  crafting digital experiences that users love.
+                  I'm a developer focused on building fast, scalable, and user-friendly web applications. 
+                  My interest in software started with simple projects and grew into a serious passion for 
+                  creating real-world digital solutions.
                 </p>
                 <p className="text-lg text-gray-400 mb-6">
-                  I specialize in React, Next.js, and Node.js, with a keen eye for design and performance. 
-                  When I'm not coding, you'll find me exploring new technologies, contributing to open source, 
-                  or designing user interfaces.
+                  I primarily work with JavaScript, TypeScript, React, and Next.js, and I also have experience 
+                  with backend technologies like Node.js and C#. I care about clean code, performance, and 
+                  practical design that actually works in production.
                 </p>
                 <div className="flex gap-4">
                   {[
@@ -245,11 +280,11 @@ const Portfolio = () => {
               <div className="relative">
                 <div className="gradient-border rounded-3xl p-8">
                   <div className="text-center">
-                    <div className="text-6xl font-bold gradient-text mb-2">5+</div>
+                    <div className="text-6xl font-bold gradient-text mb-2">3+</div>
                     <div className="text-gray-400 mb-6">Years Experience</div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-white/5 p-4 rounded-xl">
-                        <div className="text-3xl font-bold" style={{ color: theme.primary }}>50+</div>
+                        <div className="text-3xl font-bold" style={{ color: theme.primary }}>100+</div>
                         <div className="text-sm text-gray-400">Projects</div>
                       </div>
                       <div className="bg-white/5 p-4 rounded-xl">
@@ -418,7 +453,7 @@ const Portfolio = () => {
       <footer className="py-12 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 HIMURA. Built with Next.js, TailwindCSS & Framer Motion.
+            © 2025 Umut Öztürk. FullStack Developer, TailwindCSS & Framer Motion.
           </p>
         </div>
       </footer>
