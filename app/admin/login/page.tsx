@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
     Lock,
@@ -41,11 +42,57 @@ interface FloatingParticleProps {
 }
 
 const AdminLogin: React.FC = () => {
+    const router = useRouter();
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const isAuthenticated = localStorage.getItem('admin_authenticated');
+            if (isAuthenticated === 'true') {
+                router.push('/admin');
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get('error');
+            
+            if (errorParam) {
+                let errorMessage = '';
+                switch (errorParam) {
+                    case 'github_not_configured':
+                        errorMessage = 'GitHub OAuth yapılandırılmamış. Lütfen .env.local dosyasına GITHUB_CLIENT_ID ve GITHUB_CLIENT_SECRET ekleyin.';
+                        break;
+                    case 'invalid_state':
+                        errorMessage = 'Güvenlik kontrolü başarısız. Lütfen tekrar deneyin.';
+                        break;
+                    case 'token_error':
+                        errorMessage = 'GitHub token alınamadı. Lütfen tekrar deneyin.';
+                        break;
+                    case 'user_fetch_failed':
+                        errorMessage = 'Kullanıcı bilgileri alınamadı. Lütfen tekrar deneyin.';
+                        break;
+                    case 'unauthorized_user':
+                        errorMessage = 'Bu GitHub hesabına admin erişimi verilmemiş.';
+                        break;
+                    case 'oauth_error':
+                        errorMessage = 'OAuth hatası oluştu. Lütfen tekrar deneyin.';
+                        break;
+                    default:
+                        errorMessage = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                }
+                
+                window.history.replaceState({}, '', window.location.pathname);
+                
+                setTimeout(() => {
+                    setError(errorMessage);
+                }, 0);
+            }
+        }
+    }, [router]);
 
     const [particlePositions] = useState<{ x: number; y: number }[]>(() => {
         if (typeof window === "undefined") return [];
@@ -65,15 +112,59 @@ const AdminLogin: React.FC = () => {
         accent: '#ec4899'
     };
 
-    const handleSubmit = async (): Promise<void> => {
-        setIsLoading(true);
+    const handleSubmit = async (e?: React.FormEvent): Promise<void> => {
+        if (e) {
+            e.preventDefault();
+        }
 
-        // Simulate login
-        setTimeout(() => {
+        // Form validasyonu
+        if (!email || !password) {
+            setError('Lütfen email ve şifre alanlarını doldurun');
+            return;
+        }
+
+        setIsLoading(true);
+        setError('');
+
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Başarılı giriş
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('admin_authenticated', 'true');
+                    if (rememberMe) {
+                        // Remember me seçilmişse, daha uzun süreli bir token saklanabilir
+                        localStorage.setItem('admin_remember', 'true');
+                    }
+                    router.push('/admin');
+                }
+            } else {
+                // Hatalı giriş
+                setError(data.message || 'Giriş başarısız. Lütfen bilgilerinizi kontrol edin.');
+                setIsLoading(false);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            setError('Bir hata oluştu. Lütfen tekrar deneyin.');
             setIsLoading(false);
-            console.log('Login attempted with:', { email, password, rememberMe });
-            // Add your login logic here
-        }, 2000);
+        }
+    };
+
+    const handleGitHubLogin = () => {
+        setIsLoading(true);
+        window.location.href = '/api/auth/github';
     };
 
     return (
@@ -146,7 +237,17 @@ const AdminLogin: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 }}
                 >
-                    <div className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Error Message */}
+                        {error && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-red-400 text-sm"
+                            >
+                                {error}
+                            </motion.div>
+                        )}
                         {/* Email Input */}
                         <div>
                             <label className="block text-sm font-semibold mb-2 text-gray-300">
@@ -157,10 +258,15 @@ const AdminLogin: React.FC = () => {
                                 <motion.input
                                     type="email"
                                     value={email}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                        setEmail(e.target.value);
+                                        setError('');
+                                    }}
                                     placeholder="admin@example.com"
                                     className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 transition-all text-white placeholder-gray-500"
                                     whileFocus={{ scale: 1.02 }}
+                                    required
+                                    disabled={isLoading}
                                 />
                             </div>
                         </div>
@@ -175,10 +281,20 @@ const AdminLogin: React.FC = () => {
                                 <motion.input
                                     type={showPassword ? 'text' : 'password'}
                                     value={password}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                        setPassword(e.target.value);
+                                        setError('');
+                                    }}
                                     placeholder="••••••••"
                                     className="w-full pl-12 pr-12 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 transition-all text-white placeholder-gray-500"
                                     whileFocus={{ scale: 1.02 }}
+                                    required
+                                    disabled={isLoading}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' && !isLoading) {
+                                            handleSubmit();
+                                        }
+                                    }}
                                 />
                                 <button
                                     type="button"
@@ -215,7 +331,7 @@ const AdminLogin: React.FC = () => {
 
                         {/* Submit Button */}
                         <motion.button
-                            onClick={handleSubmit}
+                            type="submit"
                             disabled={isLoading}
                             className="w-full py-3 gradient-bg rounded-xl font-semibold text-white shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                             whileHover={{ scale: 1.02 }}
@@ -252,7 +368,9 @@ const AdminLogin: React.FC = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <motion.button
                                 type="button"
-                                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white"
+                                onClick={handleGitHubLogin}
+                                disabled={isLoading}
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white disabled:opacity-50 disabled:cursor-not-allowed"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
@@ -261,15 +379,14 @@ const AdminLogin: React.FC = () => {
                             </motion.button>
                             <motion.button
                                 type="button"
-                                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+                                disabled
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-white/5 border border-white/10 rounded-xl opacity-50 cursor-not-allowed text-white"
                             >
                                 <Chrome size={20} />
                                 <span className="font-medium">Google</span>
                             </motion.button>
                         </div>
-                    </div>
+                    </form>
                 </motion.div>
 
                 {/* Footer */}

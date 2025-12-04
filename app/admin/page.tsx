@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard,
@@ -35,8 +36,51 @@ import BlogView from './components/blog'
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [theme] = useState({ primary: '#6366f1', secondary: '#8b5cf6', accent: '#ec4899' });
+  const router = useRouter();
+  const [isChecking, setIsChecking] = useState(true);
 
+  useEffect(() => {
+    // Authentication kontrolü
+    const checkAuth = () => {
+      if (typeof window !== 'undefined') {
+        // Önce localStorage'ı kontrol et
+        let isAuthenticated = localStorage.getItem('admin_authenticated');
+        
+        // Eğer localStorage'da yoksa, cookie'yi kontrol et (GitHub OAuth için)
+        if (!isAuthenticated || isAuthenticated !== 'true') {
+          const cookies = document.cookie.split(';');
+          const authCookie = cookies.find(cookie => cookie.trim().startsWith('admin_authenticated='));
+          
+          if (authCookie && authCookie.split('=')[1] === 'true') {
+            // Cookie varsa localStorage'a da set et
+            localStorage.setItem('admin_authenticated', 'true');
+            isAuthenticated = 'true';
+          }
+        }
+        
+        if (!isAuthenticated || isAuthenticated !== 'true') {
+          router.push('/admin/login');
+        } else {
+          setIsChecking(false);
+        }
+      }
+    };
 
+    checkAuth();
+  }, [router]);
+
+  // Authentication kontrolü yapılırken loading göster
+  if (isChecking) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white flex items-center justify-center">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white">
