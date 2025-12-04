@@ -3,12 +3,55 @@
 import React from "react"
 import { motion } from 'framer-motion';
 import {
-    StatCard,
     Users,
     MessageSquare,
     FileEdit,
-} from 'lucide-react';
+    Eye,
+    Activity,
+    Globe,
+    PieChart,
+    BarChart3,
+    TrendingUp,
+    LucideIcon
+} from "lucide-react";
 
+import { stats, recentMessages, visitorData } from './db';
+
+type StatCardProps = {
+    icon: LucideIcon
+    title: string
+    value: number
+    change?: number
+    color: string
+}
+
+const StatCard = ({ icon: Icon, title, value, change, color }: StatCardProps) => (
+    <motion.div
+        className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl rounded-2xl p-6 border border-white/10"
+        whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+    >
+        <div className="flex items-center justify-between mb-4">
+            <div className={`p-3 rounded-xl bg-gradient-to-br ${color}`}>
+                <Icon size={24} className="text-white" />
+            </div>
+
+            {change && (
+                <div className="flex items-center gap-1 text-green-400 text-sm">
+                    <TrendingUp size={16} />
+                    <span>+{change}%</span>
+                </div>
+            )}
+        </div>
+
+        <h3 className="text-3xl font-bold mb-1">
+            {value.toLocaleString()}
+        </h3>
+
+        <p className="text-gray-400 text-sm">{title}</p>
+    </motion.div>
+)
 
 const DashboardView = () => (
     <div className="space-y-6">

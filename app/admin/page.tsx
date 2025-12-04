@@ -3,8 +3,28 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
+  LayoutDashboard,
   Users,
+  MessageSquare,
+  FileEdit,
   Settings,
+  TrendingUp,
+  Eye,
+  Clock,
+  Mail,
+  CheckCircle,
+  XCircle,
+  Edit,
+  Trash2,
+  Plus,
+  Search,
+  Filter,
+  Calendar,
+  Globe,
+  BarChart3,
+  PieChart,
+  Activity,
+  LucideIcon
 } from 'lucide-react';
 
 import Sidebar from './components/SideBar';
@@ -15,6 +35,8 @@ import BlogView from './components/blog'
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [theme] = useState({ primary: '#6366f1', secondary: '#8b5cf6', accent: '#ec4899' });
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white">

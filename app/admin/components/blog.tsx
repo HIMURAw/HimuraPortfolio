@@ -10,11 +10,7 @@ import {
     Edit
 } from 'lucide-react';
 
-const blogPosts = [
-    { id: 1, title: 'Getting Started with Next.js 14', status: 'published', views: 1234, date: '2024-01-15' },
-    { id: 2, title: 'TypeScript Best Practices', status: 'published', views: 892, date: '2024-01-10' },
-    { id: 3, title: 'Building Scalable APIs', status: 'draft', views: 0, date: '2024-01-20' },
-];
+import { blogPosts } from './db';
 
 const BlogView = () => (
     <div className="space-y-6">

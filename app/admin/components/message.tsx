@@ -12,12 +12,7 @@ import {
     Clock
 } from 'lucide-react';
 
-const recentMessages = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', message: 'I would like to discuss a project...', date: '2 hours ago', read: false },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', message: 'Great portfolio! Can we collaborate?', date: '5 hours ago', read: false },
-    { id: 3, name: 'Mike Johnson', email: 'mike@example.com', message: 'Looking for a developer for my startup', date: '1 day ago', read: true },
-    { id: 4, name: 'Sarah Williams', email: 'sarah@example.com', message: 'Interested in hiring you for a project', date: '2 days ago', read: true },
-];
+import { recentMessages } from './db';
 
 type Message = {
     id: number

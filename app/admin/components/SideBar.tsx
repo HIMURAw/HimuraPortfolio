@@ -9,15 +9,7 @@ import {
     FileEdit,
     Settings
 } from 'lucide-react';
-
-const stats = {
-    totalVisitors: 12453,
-    todayVisitors: 342,
-    totalMessages: 89,
-    unreadMessages: 12,
-    blogPosts: 24,
-    publishedPosts: 20
-};
+import { stats } from './db';
 
 const Sidebar = () => {
     const [activeTab, setActiveTab] = useState<string>('dashboard');
