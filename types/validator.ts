@@ -5,7 +5,7 @@
 
 import type { AppRoutes, LayoutRoutes, ParamMap } from "./routes.js"
 import type { ResolvingMetadata, ResolvingViewport, Metadata, Viewport } from "next/types.js"
- 
+
 type AppPageConfig<Route extends AppRoutes = AppRoutes> = {
   default: React.ComponentType<{ params: Promise<ParamMap[Route]>; searchParams: Promise<Record<string, string | string[] | undefined>> }> | ((props: { params: Promise<ParamMap[Route]>; searchParams: Promise<Record<string, string | string[] | undefined>> }) => React.ReactNode | Promise<React.ReactNode> | never | void | Promise<void>)
   generateStaticParams?: (props: { params: ParamMap[Route] }) => Promise<Record<string, unknown>[]> | Record<string, unknown>[]
@@ -40,7 +40,7 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 // Validate ../../app/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/">> = Specific
-  const handler = {} as typeof import("../app/page")
+  const handler = {} as typeof import("../app/(public)/page")
   type __Check = __IsExpected<typeof handler>
 }
 

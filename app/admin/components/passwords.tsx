@@ -98,10 +98,10 @@ const PasswordsView = () => {
         const updatedPasswords = passwords.map(p =>
             p.id === selectedPassword.id
                 ? {
-                      ...p,
-                      ...formData,
-                      updatedAt: new Date().toISOString()
-                  }
+                    ...p,
+                    ...formData,
+                    updatedAt: new Date().toISOString()
+                }
                 : p
         );
         savePasswords(updatedPasswords);
@@ -182,11 +182,10 @@ const PasswordsView = () => {
                                 <motion.div
                                     key={password.id}
                                     onClick={() => !isEditing && startEdit(password)}
-                                    className={`p-3 rounded-xl cursor-pointer transition-all ${
-                                        selectedPassword?.id === password.id
-                                            ? 'bg-indigo-600/20 border border-indigo-500'
-                                            : 'bg-white/5 border border-white/10 hover:bg-white/10'
-                                    }`}
+                                    className={`p-3 rounded-xl cursor-pointer transition-all ${selectedPassword?.id === password.id
+                                        ? 'bg-indigo-600/20 border border-indigo-500'
+                                        : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                                        }`}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >

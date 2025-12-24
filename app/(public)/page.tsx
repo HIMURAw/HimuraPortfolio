@@ -27,7 +27,7 @@ const Portfolio = () => {
   const [typedText, setTypedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  
+
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
@@ -101,35 +101,35 @@ const Portfolio = () => {
     { name: 'Next.js', level: 80 },
   ];
 
-const handleSubmit = async () => {
-  if (formData.name && formData.email && formData.message) {
-    try {
-      // EmailJS ile mail gönder
-      await emailjs.send(
-        'service_kgm7qb7',
-        'template_6qomg8w',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'zamtos79@gmail.com', 
-        },
-        'Q6zlJ4E5H7cJ3F6Zh'
-      );
-      
-      setFormStatus('Message sent successfully! ✅');
-      setTimeout(() => {
-        setFormStatus('');
-        setFormData({ name: '', email: '', message: '' });
-      }, 3000);
-    } catch (error) {
-      console.error('Error:', error);
-      setFormStatus('Failed to send message. Please try again. ❌');
+  const handleSubmit = async () => {
+    if (formData.name && formData.email && formData.message) {
+      try {
+        // EmailJS ile mail gönder
+        await emailjs.send(
+          'service_kgm7qb7',
+          'template_6qomg8w',
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            to_email: 'zamtos79@gmail.com',
+          },
+          'Q6zlJ4E5H7cJ3F6Zh'
+        );
+
+        setFormStatus('Message sent successfully! ✅');
+        setTimeout(() => {
+          setFormStatus('');
+          setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+      } catch (error) {
+        console.error('Error:', error);
+        setFormStatus('Failed to send message. Please try again. ❌');
+      }
+    } else {
+      setFormStatus('Please fill in all fields. ⚠️');
     }
-  } else {
-    setFormStatus('Please fill in all fields. ⚠️');
-  }
-};
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
       <style>{`
@@ -166,7 +166,7 @@ const handleSubmit = async () => {
       `}</style>
 
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="relative min-h-screen flex items-center justify-center px-6"
         style={{ opacity, scale }}
       >
@@ -181,16 +181,16 @@ const handleSubmit = async () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div 
+            <motion.div
               className="inline-block mb-6"
-              animate={{ 
+              animate={{
                 y: [0, -10, 0, -10, 0]
               }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
+              transition={{
+                duration: 2,
+                repeat: Infinity,
                 repeatDelay: 3,
-                ease: "easeInOut" 
+                ease: "easeInOut"
               }}
             >
               <Image src="/himura.png" alt="HIMURA" width={128} height={128} className="w-32 h-32" />
@@ -253,7 +253,7 @@ const handleSubmit = async () => {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full p-1">
-            <motion.div 
+            <motion.div
               className="w-1.5 h-1.5 bg-white rounded-full mx-auto"
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -275,13 +275,13 @@ const handleSubmit = async () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-lg text-gray-400 mb-6">
-                  I'm a developer focused on building fast, scalable, and user-friendly web applications. 
-                  My interest in software started with simple projects and grew into a serious passion for 
+                  I'm a developer focused on building fast, scalable, and user-friendly web applications.
+                  My interest in software started with simple projects and grew into a serious passion for
                   creating real-world digital solutions.
                 </p>
                 <p className="text-lg text-gray-400 mb-6">
-                  I primarily work with JavaScript, TypeScript, React, and Next.js, and I also have experience 
-                  with backend technologies like Node.js and C#. I care about clean code, performance, and 
+                  I primarily work with JavaScript, TypeScript, React, and Next.js, and I also have experience
+                  with backend technologies like Node.js and C#. I care about clean code, performance, and
                   practical design that actually works in production.
                 </p>
                 <div className="flex gap-4">
@@ -412,7 +412,7 @@ const handleSubmit = async () => {
             <p className="text-xl text-gray-400 text-center mb-16">
               Have a project in mind? Let's discuss how we can bring your ideas to life.
             </p>
-            
+
             <div className="rounded-2xl p-8 bg-white/5 backdrop-blur-sm border border-white/10">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -420,7 +420,7 @@ const handleSubmit = async () => {
                   <input
                     type="text"
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:outline-none transition-colors"
                     placeholder="Your name"
                   />
@@ -430,7 +430,7 @@ const handleSubmit = async () => {
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
@@ -441,7 +441,7 @@ const handleSubmit = async () => {
                 <textarea
                   rows={6}
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:outline-none transition-colors resize-none"
                   placeholder="Tell me about your project..."
                 />
